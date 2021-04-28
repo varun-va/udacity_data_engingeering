@@ -18,12 +18,12 @@ log_s3_key = "log_data"
 log_json_file = "log_json_path.json"
 
 default_args = {
-    'owner': 'udacity',
+    'owner': 'varunv',
     'depends_on_past': True,
     'start_date': datetime(2019, 1, 12),
     'email_on_failure': False,
     'email_on_retry': False,
-    'retries': 1,
+    'retries': 3,
     'retry_delay': timedelta(minutes=5),
     'catchup': True
 }
