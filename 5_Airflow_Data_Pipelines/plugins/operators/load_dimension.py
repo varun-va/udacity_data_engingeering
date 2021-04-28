@@ -23,9 +23,9 @@ class LoadDimensionOperator(BaseOperator):
     def execute(self, context):
         redshift_hook = PostgresHook(postgres_conn_id = self.redshift_conn_id)
         if self.delete_load:
-            self.log.info(f"Delete load operation set to TRUE. Running delete statement on table {self.table_name}")
+            #self.log.info(f"Delete load operation set to TRUE. Running delete statement on table {self.table_name}")
             redshift_hook.run(f"DELETE FROM {self.table_name}")
             
-        self.log.info(f"Running query to load data into Dimension Table {self.table_name}")
+        #self.log.info(f"Running query to load data into Dimension Table {self.table_name}")
         redshift_hook.run(self.sql_query)
-        self.log.info(f"Dimension Table {self.table_name} loaded.")
+        #self.log.info(f"Dimension Table {self.table_name} loaded.")
