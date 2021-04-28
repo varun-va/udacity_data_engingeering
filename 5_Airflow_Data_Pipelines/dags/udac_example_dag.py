@@ -28,7 +28,7 @@ default_args = {
     'catchup': True
 }
 
-dag_name = 'udac_example_dag' 
+dag_name = 'udac_airflow_dag' 
 dag = DAG(dag_name,
           default_args=default_args,
           description='Load and transform data in Redshift with Airflow',
