@@ -21,14 +21,14 @@ class DataQualityOperator(BaseOperator):
         
         for table in self.tables:
             
-            self.log.info(f"Starting data quality validation on table : {table}")
+            #self.log.info(f"Starting data quality validation on table : {table}")
             records = redshift_hook.get_records(f"select count(*) from {table};")
 
             if len(records) < 1 or len(records[0]) < 1 or records[0][0] < 1:
                 self.log.error(f"Data Quality validation failed for table : {table}.")
                 raise ValueError(f"Data Quality validation failed for table : {table}")
-            self.log.info(f"Data Quality Validation Passed on table : {table}!!!")            
+            #self.log.info(f"Data Quality Validation Passed on table : {table}!!!")            
             
             
         
-        self.log.info('DataQualityOperator not implemented yet')
+        #self.log.info('DataQualityOperator not implemented yet')
