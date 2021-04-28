@@ -8,6 +8,7 @@ class StageToRedshiftOperator(BaseOperator):
     
     copy_query = " COPY {} \
     FROM '{}' \
+    REGION 'us-west-2'\
     ACCESS_KEY_ID '{}' \
     SECRET_ACCESS_KEY '{}' \
     FORMAT AS json '{}'; \
