@@ -13,7 +13,7 @@ class CreateTableOperator(BaseOperator):
         self.redshift_conn_id = redshift_conn_id
         
     def execute(self, context):
-        self.log.info('Creating Postgres SQL Hook')
+        #self.log.info('Creating Postgres SQL Hook')
         redshift = PostgresHook(postgres_conn_id = self.redshift_conn_id)
 
         self.log.info('Executing creating tables in Redshift.')
@@ -21,7 +21,7 @@ class CreateTableOperator(BaseOperator):
         queries =  open('../../create_tables.sql', 'r').read()
         redshift.run(queries)
         
-        self.log.info("Tables created ")
+        #self.log.info("Tables created ")
         
 
 
