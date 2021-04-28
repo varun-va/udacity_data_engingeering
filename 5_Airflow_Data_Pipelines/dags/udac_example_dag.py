@@ -12,9 +12,9 @@ from airflow.operators.subdag_operator import SubDagOperator
 #AWS_KEY = os.environ.get('AWS_KEY')
 #AWS_SECRET = os.environ.get('AWS_SECRET')
 
-s3_bucket = 'udacity-dend-warehouse'
+s3_bucket = 'udacity-dend'
 song_s3_key = "song_data"
-log_s3_key = "log-data"
+log_s3_key = "log_data"
 log_json_file = "log_json_path.json"
 
 default_args = {
@@ -154,4 +154,3 @@ start_operator >> create_tables_in_redshift
 create_tables_in_redshift >> [stage_songs_to_redshift, stage_events_to_redshift] >> load_songplays_table
 
 load_songplays_table >> [load_user_dimension_table, load_song_dimension_table, load_artist_dimension_table, load_time_dimension_table] >> run_quality_checks >> end_operator
-
