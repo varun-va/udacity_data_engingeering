@@ -21,6 +21,8 @@ This is a simple table of airport codes and corresponding cities. It comes from 
 * Filter temperature data to only use US data.
 * Remove irregular ports from I94 data.
 * Drop rows with missing IATA codes from I94 data. We need the IATA codes to join the data with other sources.
+* Clean up the nono-ASCII data from Airport codes from the columns Name and Municipality
+* 
 
 ## Conceptual Data Model
 
@@ -44,9 +46,10 @@ We want to have the immigrations data to store the key information. We can then 
 
 ## Choice of tools and technologies for the project
 
-Pandas is used to ease data preprocessing and visualisation. It is helpful to efficiently load and manipulate data. At a later stage, instead of pandas dataframes, I recommend using Spark dataframes to allow distributed processing using for example Amazon Elastic Map Reduce (EMR). Also, to perform automated updates, I recommend integrating the ETL pipeline into an Airflow DAG.
+Spark was the first choice to process the SAS files, but due to compiler errors, I'd to change the logic to process the files using Pandas data frames.
+Pandas is helpful to efficiently load and manipulate data. At a later stage, instead of pandas dataframes, I recommend using Spark dataframes to allow distributed processing using for example Amazon Elastic Map Reduce (EMR). Also, to perform automated updates, I recommend integrating the ETL pipeline into an Airflow DAG.
 
-I used a Jupyter Notebook to show the data structure and the need for data cleaning. Python is an often used programming language and was used because it is the language I am the most comfortable with.
+I used a Jupyter Notebook to show the data structure and the need for data cleaning. 
 
 ## How often the data should be updated and why
 
