@@ -18,11 +18,15 @@ This is a simple table of airport codes and corresponding cities. It comes from 
 
 ## Data cleaning
 
-* Filter temperature data to only use US data.
-* Remove irregular ports from I94 data.
-* Drop rows with missing IATA codes from I94 data. We need the IATA codes to join the data with other sources.
-* Clean up the nono-ASCII data from Airport codes from the columns Name and Municipality
-* 
+1. Clean up I94 data. 
+ - Remove irregular ports from I94 data.
+2. Clean up Temerature data
+ - Filter temperature data to only use US data and drop null data
+3. Clean up Airport Data
+ - Drop rows with missing IATA codes from I94 data. We need the IATA codes to join the data with other sources.
+ - Clean up the non-ASCII data from Airport codes from the columns Name and Municipality
+4. Clean up Demographics data
+ - Drop null data
 
 ## Conceptual Data Model
 
@@ -41,8 +45,9 @@ We want to have the immigrations data to store the key information. We can then 
 ## Mapping Out Data Pipelines
 
 1. Create tables by executing `create_tables.py`.
-2. Join city to airports data.
-3. Insert data.
+2. `sql_queries.py` script will be used to drop/create tables and to insert the data in the corresponding tables.
+3. Join city to airports data.
+4. Insert data.
 
 ## Choice of tools and technologies for the project
 
